@@ -1,0 +1,2 @@
+include ':app', ':thunde'
+project(':thunde').projectDir = new File('thunder')
