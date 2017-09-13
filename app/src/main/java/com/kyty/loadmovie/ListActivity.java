@@ -78,7 +78,6 @@ public class ListActivity extends BaseActivity {
                         String loclUrl = XLTaskHelper.instance().getLoclUrl(path +"/"+mFileName);
                         Log.e("tag",path +"/"+mFileName);
                         int mFileIndex = info.mFileIndex;
-//                        XLTaskHelper.instance().startDcdn(id,mFileIndex);
                         list.add(new MovieBean(mFileName,loclUrl,mFileIndex));
                         adapter.notifyDataSetChanged();
                     }
