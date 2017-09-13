@@ -29,7 +29,7 @@ import com.xunlei.downloadlib.parameter.XLTaskInfo;
 
 import java.io.File;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText edit;
     private Button but;
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (time>=100){
+            dialog.cancel();
             Toast.makeText(getBaseContext(),"无法解析的磁力链接",Toast.LENGTH_LONG).show();
             handler.removeCallbacksAndMessages(null);
             time=0;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startBtActivity(String btPath) {
+        dialog.cancel();
         Intent intent=new Intent(MainActivity.this,ListActivity.class);
         intent.putExtra("url",btPath);
         intent.putExtra("path",path.getAbsolutePath());
@@ -174,9 +176,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startPlay() {
+        dialog.show();
         String url = edit.getText().toString();
         if (TextUtils.isEmpty(url)){
             Toast.makeText(this,"请输入迅雷链接或磁力链接",Toast.LENGTH_LONG).show();
+            dialog.cancel();
             return;
         }
         if (url.startsWith("magnet:?")){
@@ -195,10 +199,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e("tag","id="+ id);
                 handler.sendMessage(message);
             } catch (Exception e) {
+                dialog.cancel();
                 Toast.makeText(getBaseContext(),"无效的磁力链接",Toast.LENGTH_LONG).show();
             }
         }else {
             //迅雷链接
+            dialog.cancel();
             Intent intent=new Intent(this,ListActivity.class);
             intent.putExtra("url",url);
             intent.putExtra("path",path.getAbsolutePath());

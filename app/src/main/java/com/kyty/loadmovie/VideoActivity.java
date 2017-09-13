@@ -12,7 +12,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends BaseActivity {
 
 
     private String url;

@@ -23,7 +23,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends BaseActivity {
 
     private int type;
     private String url;
