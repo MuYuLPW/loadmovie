@@ -31,6 +31,7 @@ public class ListActivity extends BaseActivity {
     private File file;
     private ListView lv;
     private List<MovieBean> list=new ArrayList<>();
+
     private MyAdapter adapter;
     private long id;
 
