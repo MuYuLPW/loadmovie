@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.kyty.loadmovie.MainActivity">
+    tools:context="com.kyty.loadmovie.activity.MainActivity">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
@@ -38,5 +38,16 @@
         android:layout_height="60dp"
         android:id="@+id/btn_1"
         android:text="打开"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="搜索"
+        android:id="@+id/serch"/>
 
 </LinearLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="看电影">loadmovie</string>
+    <string name="BTFuLi">http://www.btfuli.com/list/%1$s-s1d-%2$d.html</string>
 </resources>

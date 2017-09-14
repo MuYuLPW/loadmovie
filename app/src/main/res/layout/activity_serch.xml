@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.kyty.loadmovie.activity.ListActivity">
+    tools:context="com.kyty.loadmovie.activity.SerchActivity">
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        android:id="@+id/list"></ListView>
+        android:id="@+id/lv"
+        ></ListView>
+
 </LinearLayout>
