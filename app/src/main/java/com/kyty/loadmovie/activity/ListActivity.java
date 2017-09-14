@@ -1,16 +1,14 @@
-package com.kyty.loadmovie;
+package com.kyty.loadmovie.activity;
 
 import android.content.Intent;
-import android.support.constraint.solver.SolverVariable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.kyty.loadmovie.R;
 import com.kyty.loadmovie.adapter.MyAdapter;
 import com.kyty.loadmovie.bean.MovieBean;
 import com.kyty.loadmovie.utils.AbDateUtil;

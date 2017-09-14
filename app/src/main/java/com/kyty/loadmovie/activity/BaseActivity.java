@@ -1,4 +1,4 @@
-package com.kyty.loadmovie;
+package com.kyty.loadmovie.activity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;

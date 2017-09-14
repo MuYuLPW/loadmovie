@@ -1,12 +1,12 @@
-package com.kyty.loadmovie;
+package com.kyty.loadmovie.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -17,14 +17,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.kyty.loadmovie.R;
 import com.kyty.loadmovie.utils.MyUtils;
 import com.xunlei.downloadlib.XLTaskHelper;
-import com.xunlei.downloadlib.parameter.TorrentInfo;
 import com.xunlei.downloadlib.parameter.XLTaskInfo;
 
 import java.io.File;
@@ -47,6 +48,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ImageView iv;
     private int time=0;
     private long id;
+    private EditText text;
+    private Button serch;
 
 
     //解析磁力链接
@@ -98,6 +101,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initListener() {
         but.setOnClickListener(this);
         iv.setOnClickListener(this);
+        serch.setOnClickListener(this);
         edit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -125,6 +129,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         edit = (EditText) findViewById(R.id.edit);
         but = (Button) findViewById(R.id.btn_1);
         iv = (ImageView) findViewById(R.id.iv);
+        text = (EditText) findViewById(R.id.text);
+        serch = (Button) findViewById(R.id.serch);
     }
 
     @Override
@@ -136,10 +142,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//        intent.setType("*/*");
-//        intent.addCategory(Intent.CATEGORY_OPENABLE);
-//        startActivity(intent);
 
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("*/*");
@@ -172,7 +174,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.iv:
                 edit.setText("");
                 break;
+            case R.id.serch:
+                //搜索bt
+                serchBT();
+                break;
         }
+    }
+
+    private void serchBT() {
+        String str = text.getText().toString();
+        if (TextUtils.isEmpty(str)){
+            Toast.makeText(this,"输入内容不能为空",Toast.LENGTH_LONG).show();
+            return;
+        }
+        View view = getWindow().peekDecorView();
+        if (view != null) {
+            InputMethodManager inputmanger = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputmanger.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        Intent intent=new Intent(this,SerchActivity.class);
+        intent.putExtra("str",str);
+        startActivity(intent);
+
     }
 
     private void startPlay() {

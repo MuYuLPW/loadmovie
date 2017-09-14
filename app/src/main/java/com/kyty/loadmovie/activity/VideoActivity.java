@@ -1,13 +1,12 @@
-package com.kyty.loadmovie;
+package com.kyty.loadmovie.activity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import fm.jiecao.jcvideoplayer_lib.JCUtils;
+import com.kyty.loadmovie.R;
+
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
